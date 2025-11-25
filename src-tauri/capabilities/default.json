@@ -1,0 +1,26 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    "store:default",
+    "dialog:default",
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        {
+          "name": "git",
+          "cmd": "git",
+          "args": [ { "validator": ".*" } ]
+        }
+      ]
+    },
+    { "identifier": "http:default", "allow": [
+      { "url": "https://github.com/*" },
+      { "url": "https://api.github.com/*" }
+    ] }
+  ]
+}
